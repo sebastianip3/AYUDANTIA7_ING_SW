@@ -1,5 +1,12 @@
 // Un componente es simplemente una función que recibe "props" (parámetros)
-export function TaskCard({ title, description, completed, onToggle, onDelete }) {
+export function TaskCard({
+  title,
+  description,
+  completed,
+  onToggle,
+  onDelete,
+  onEdit
+}) {
   return (
     <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-lg flex flex-col justify-between transition hover:border-slate-500">
       <div>
@@ -39,6 +46,13 @@ export function TaskCard({ title, description, completed, onToggle, onDelete }) 
         >
           {completed ? 'Marcar pendiente' : 'Marcar completada'}
         </button>
+
+        <button
+  onClick={onEdit}
+  className="text-xs px-3 py-1.5 rounded-lg font-medium bg-sky-500/10 text-sky-400 hover:bg-sky-500/20 border border-sky-500/20 transition cursor-pointer"
+>
+  Editar
+</button>
 
         <button
           onClick={onDelete}
